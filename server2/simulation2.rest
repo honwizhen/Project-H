@@ -1,0 +1,60 @@
+GET http://localhost:3000/
+###
+
+GET http://localhost:3000/devTest
+###
+
+POST http://localhost:3000/registerTest
+Content-Type: application/json
+
+{
+    "username": "jason",
+    "password": "password",
+    "friends": [],
+    "numTasks": "2",
+    "tasks": [
+        {
+            "title": "take out trash",
+            "descr": "the bin is outside",
+            "date_created": "6/4/2024",
+            "public": "false"
+        },
+        {
+            "title": "do homework",
+            "descr": "read chapter one of book",
+            "date_created": "6/7/2024",
+            "public": "false"
+        }
+    ]
+}
+###
+
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "New User",
+    "password": "password"
+}
+###
+
+GET http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "jason",
+    "password": "password"
+}
+###
+
+# Logout not implemented yet
+GET http://localhost:3000/logout
+Content-Type: application/json
+Authorization: 
+
+{
+    "username": "jason"
+}
+###
+
+GET http://localhost:3000/rabbitMQ
