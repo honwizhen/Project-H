@@ -33,7 +33,7 @@
 
 ## Technical Specifications
 
-- **Platform**: The application will be developed for both iOS and Android platforms.
+- **Platform**: The application will be developed for IOS, Android and Web platforms.
 - **Technologies**: The app will be built using React Native for cross-platform development, with cloud storage integration for data synchronization.
 - **Authentication**: User authentication will be implemented using email sign-up/login.
 
