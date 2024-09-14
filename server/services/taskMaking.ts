@@ -8,12 +8,12 @@ let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
 // console.log("The current date is " + currentDate); 
 
 // Generate a unique taskId
-const generateHash = require('random-hash').default;
-const randomTaskId = generateHash({ length: 15 });
+const GENERATE_HASH = require('random-hash').default;
+const RANDOM_TASK_ID = GENERATE_HASH({ length: 15 });
 
 function newTask(title:string, descr:string = "", shared:boolean = false): object {
     const task = {
-        taskId: randomTaskId,
+        taskId: RANDOM_TASK_ID,
         title: title,
         descr: descr,
         date_created: currentDate,

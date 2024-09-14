@@ -1,4 +1,3 @@
-
 # Coding Standards and Guidelines
 
 This document outlines the coding standards and best practices for the [Project Name] to ensure code quality, readability, and maintainability.
@@ -20,7 +19,7 @@ This document outlines the coding standards and best practices for the [Project 
   - Use `PascalCase` for class names (e.g., `UserProfile`, `ProductList`).
 - **Constants:**
   - Use `UPPER_CASE_WITH_UNDERSCORES` for constants (e.g., `MAX_RETRY_LIMIT`).
-  
+
 ## 3. File Structure
 
 - **File Names:** Use descriptive and consistent names for files. Use `PascalCase` for class files (e.g., `UserService.js`) and `kebab-case` for non-class files (e.g., `user-service.js`).
@@ -49,12 +48,34 @@ This document outlines the coding standards and best practices for the [Project 
 - **Function Length:** Keep functions small and focused on a single task. If a function exceeds 20-30 lines, consider breaking it into smaller functions.
 - **Parameter Limit:** Avoid functions with more than 3 parameters. If necessary, use an options object.
 
+  ```
+  // Good
+  const newUser = {
+    username: req.body.username,
+    password: hashedPassword,
+    friends: [],
+    numTasks: 0,
+    tasks: [],
+  };
+
+  // Bad
+  function createUser(username, password, friends, numTasks, tasks) {}
+  ```
+
 ## 6. Error Handling
 
 - **Exceptions:** Handle exceptions properly with `try/catch` blocks where appropriate.
+  ```
+  try {
+    const db = await connectToDatabase();
+  } catch (error) {
+    console.error("Error connecting to database:", error);
+    res.status(500).json({ error: "Database connection failed" });
+  }
+  ```
 - **Logging:** Use a consistent logging mechanism for errors (e.g., `console.error()`) and ensure error messages are clear.
 
-## 7. Testing
+## 7. Testing (TBD with Codemagic)
 
 - **Unit Testing:** Write unit tests for critical functions and components. Tests should cover edge cases and failure scenarios.
 - **Test Naming:** Use descriptive names for test cases that explain what the test is doing (e.g., `should_return_false_for_invalid_email()`).
@@ -69,6 +90,7 @@ This document outlines the coding standards and best practices for the [Project 
 
 - **Branching:** Use feature branches (e.g., `feature/user-authentication`) for new features. Use descriptive names for branch names.
 - **Pull Requests:** Submit pull requests for review. Ensure that pull requests include a clear description of changes.
+- **Commit Messages:** Use imperative, present tense for commit messages (e.g., `Add login endpoint`).
 - **Merging:** Only merge branches into `main` or `master` after code review and passing tests.
 
 ---
