@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "expo start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server/index.ts"
   },
@@ -12,13 +13,20 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
+    "expo": "^51.0.32",
     "express": "^4.19.2",
+    "glob": "^11.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.7.0",
     "node": "^20.14.0",
-    "random-hash": "^4.0.1"
+    "random-hash": "^4.0.1",
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
+    "@babel/plugin-transform-async-generator-functions": "^7.25.4",
+    "@babel/plugin-transform-logical-assignment-operators": "^7.24.7",
+    "@babel/plugin-transform-numeric-separator": "^7.24.7",
+    "@expo/cli": "^0.18.29",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",
