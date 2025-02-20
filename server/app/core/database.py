@@ -1,12 +1,22 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import Users, Tasks
+from app.models.users import Users
 
 DATABASE_URL = "mysql+pymysql://root:rootpassword@localhost/hippero_db"     # Change on prod
 
 engine = create_engine(DATABASE_URL, echo=True)
 
-SessionLocal = sessionmaker(bind=engine)    # Sessions for ORM operations
+SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)    # Sessions for ORM operations
+
+
+def get_db():
+    db = SessionLocal()
+
+    try:
+        yield db    # Returned to the route or service, then closed automatically
+    finally:
+        db.close()
+
 
 # For testing db connectivity
 if 0:
