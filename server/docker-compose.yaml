@@ -1,0 +1,19 @@
+version: '1.0'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: hippero-mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-volume:/var/lib/mysql
+    environment:
+      - MYSQL_USER=hippero_user
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_PASSWORD=hippero_password
+      - MYSQL_DB=hippero_DB
+
+
+volumes:
+  mysql-volume:
