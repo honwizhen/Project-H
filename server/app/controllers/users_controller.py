@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.users import Users
+from app.core.deps import get_current_user
 
 router = APIRouter()
 
@@ -10,4 +11,12 @@ def get_users(db: Session = Depends(get_db)):
     result = db.query(Users).all()
     return {"users": result}
 
-# Other routes here
+@router.get("/me")
+def get_current_user_info(current_user: Users = Depends(get_current_user)):
+    return {
+        "id": current_user.id,
+        "username": current_user.username,
+        "xp": current_user.xp,
+        "level": current_user.level,
+        "currency": current_user.currency,
+    }

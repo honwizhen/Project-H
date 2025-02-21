@@ -2,3 +2,6 @@ sqlalchemy
 pymysql
 cryptography
 fastapi[standard]
+python-jose     # Creating and verifying JWT's
+passlib[bcrypt] # Python bcrypt
+python-dotenv
