@@ -8,7 +8,7 @@ load_dotenv()
 
 JWT_SECRET_KEY=os.getenv('JWT_SECRET_KEY')
 JWT_ALGORITHM=os.getenv('JWT_ALGORITHM')
-JWT_ACCESS_TOKEN_EXPIRE_MINUTES=os.getenv('JWT_ACCESS_TOKEN_EXPIRE_MINUTES')
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES=int(os.getenv('JWT_ACCESS_TOKEN_EXPIRE_MINUTES', '30'))
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     to_encode = data.copy()
