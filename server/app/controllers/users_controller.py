@@ -12,11 +12,12 @@ def get_users(db: Session = Depends(get_db)):
     return {"users": result}
 
 @router.get("/me")
-def get_current_user_info(current_user: Users = Depends(get_current_user)):
-    return {
+def get_me(
+    db: Session = Depends(get_db), current_user: Users = Depends(get_current_user)):
+    return {"user": {
         "id": current_user.id,
         "username": current_user.username,
         "xp": current_user.xp,
         "level": current_user.level,
-        "currency": current_user.currency,
-    }
+        "currency": current_user.currency
+    }}

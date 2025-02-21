@@ -4,7 +4,7 @@ from app.models.users import Users
 
 DATABASE_URL = "mysql+pymysql://root:rootpassword@localhost/hippero_db"     # Change on prod
 
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(DATABASE_URL, echo=False)
 
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)    # Sessions for ORM operations
 
