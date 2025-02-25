@@ -2,13 +2,23 @@
 POST http://localhost:3000/auth/login
 Content-Type: application/x-www-form-urlencoded
 
-username=testuser&password=testpassword
+username=mike&password=test
+
+### mike , test
+### mik , test
 
 ### Register
 POST http://localhost:3000/auth/register
 Content-Type: application/x-www-form-urlencoded
 
 username=mik&password=test
+
+### Delete user
+DELETE http://localhost:3000/auth/delete
+Content-Type: application/x-www-form-urlencoded
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZXhwIjoxNzQwNDU2MDU1fQ.DGlL6K4p0GrIraHHyVlOd5jn5khrJ7RroukzX7nSxFM
+
+username=mike&password=test
 
 ### Get all users
 GET http://localhost:3000/users/

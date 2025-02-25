@@ -4,8 +4,11 @@ from sqlalchemy.orm import Session
 from app.services.auth_service import authenticate_user
 from app.services.register_service import insert_user_to_db
 from app.services.check_user_exists import check_if_already_exists
+from app.services.delete_account_service import delete_account
 from app.core.database import get_db
 from app.core.jwt_handler import create_access_token
+from app.core.auth_dependencies import get_current_user
+from app.models.users import Users
 
 router = APIRouter()
 
@@ -34,3 +37,12 @@ def register(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Dep
     except:
         return {'message': 'Something went wrong inserting the user into the database.'}
     
+
+@router.delete('/delete')
+def delete_account_route(db: Session = Depends(get_db), current_user: Users = Depends(get_current_user)):
+    success = delete_account(db, current_user)
+    
+    if success:
+        return {'message': 'Account deleted successfully.'}
+    else:
+        return {'message': 'User not found or could not be deleted.'}
