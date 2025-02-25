@@ -6,7 +6,6 @@ from app.services.register_service import insert_user_to_db
 from app.services.check_user_exists import check_if_already_exists
 from app.core.database import get_db
 from app.core.jwt_handler import create_access_token
-from app.models.users import Users
 
 router = APIRouter()
 
@@ -35,6 +34,3 @@ def register(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Dep
     except:
         return {'message': 'Something went wrong inserting the user into the database.'}
     
-@router.get('/all')     # DEBUG ONLY
-def all(db: Session = Depends(get_db), skip=0, limit=20):
-    return db.query(Users).all()

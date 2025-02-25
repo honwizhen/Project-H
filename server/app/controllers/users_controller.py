@@ -6,7 +6,7 @@ from app.core.auth_dependencies import get_current_user
 
 router = APIRouter()
 
-@router.get("/")
+@router.get("/")    # DEBUG ONLY
 def get_users(db: Session = Depends(get_db)):
     result = db.query(Users).all()
     return {"users": result}
