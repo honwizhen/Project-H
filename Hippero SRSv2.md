@@ -99,23 +99,22 @@ Key components of the system include:
 
 ### Potential Issues and Drawbacks
 
-| Concern          | Description                                                                |
-| ---------------- | -------------------------------------------------------------------------- |
-| Farming Exploit  | Users may create/complete fake tasks to farm XP and currency.              |
-| Complexity Creep | Balancing task simplicity with engaging rewards can lead to feature bloat. |
-| Reward Inflation | Over-generous XP or currency could reduce reward value over time.          |
+| Concern          | Description                                                       |
+| ---------------- | ----------------------------------------------------------------- |
+| Farming Exploit  | Users may create/complete fake tasks to farm XP and currency.     |
+| Reward Inflation | Over-generous XP or currency could reduce reward value over time. |
 
 ### Post-MVP Feature Enhancements
 
-| Feature                 | Description                                                    |
-| ----------------------- | -------------------------------------------------------------- |
-| Streak Bonuses          | Extra XP for consistent daily task completion.                 |
-| Advanced Power-Ups      | Temporary XP boosts, task auto-complete coupons.               |
-| AI Task Suggestions     | Smart task prioritization based on user behavior.              |
-| Calendar Integration    | Sync tasks with Google Calendar for time-blocking.             |
-| Loot Chests             | Complete task sets to earn randomized rewards.                 |
-| Task Difficulty Ratings | Users set task difficulty for scaled XP gains.                 |
-| User Data Export        | Export a summary and visual representation of user statistics. |
+| Feature                 | Description                                                      |
+| ----------------------- | ---------------------------------------------------------------- |
+| Streak Bonuses          | Extra XP for consistent daily task completion.                   |
+| Advanced Power-Ups      | Temporary XP boosts, task auto-complete coupons.                 |
+| AI Task Suggestions     | Smart task prioritization based on user behavior.                |
+| Calendar Integration    | Sync tasks with Google Calendar for time-blocking.               |
+| Loot Chests             | Complete task sets to earn randomized rewards.                   |
+| Task Difficulty Ratings | Users set task difficulty for scaled XP gains.                   |
+| User Data Export        | Export a summary and visual representation of user statistics.  |
 
 ## Final Perspective
 
@@ -123,6 +122,6 @@ Hippero stands out by transforming mundane task management into a rewarding jour
 
     - Ernesto
 
-Hippero is the only instrument that alines the stressful unpredictable patterns in the era of excess information into an organized, controlled setting gaining back the focus hijacked by the sea of data. Through implementation of this project, meaningful of studies and research of the human psychology will be evident to every user regardless of capacity. This projects contributes to the recapicitation of the world's creativity. 
+Hippero is the only instrument that alines the stressful unpredictable patterns in the era of excess information into an organized, controlled setting gaining back the focus hijacked by the sea of data. Through implementation of this project, meaningful of studies and research of the human psychology will be evident to every user regardless of capacity. This projects contributes to the recapicitation of the world's creativity.
 
     - Honwi

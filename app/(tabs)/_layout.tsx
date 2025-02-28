@@ -1,59 +1,77 @@
 import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Pressable, View, StyleSheet, Text } from 'react-native';
-import { useRouter } from 'expo-router'; // Import useRouter for navigation
-import Index from './index';
-
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={styles.icon} {...props} />;
-}
+import { View, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
+import NavButton from '../../components/navigation/NavButton';
+import LeagueRight from '../../components/right-side/LeagueRight';
+import QuestsRight from '../../components/right-side/QuestsRight';
+import ShopRight from '../../components/right-side/ShopRight';
+import ProfileRight from '../../components/right-side/ProfileRight';
+import HelpRight from '../../components/right-side/HelpRight';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  const router = useRouter(); // Initialize the router for navigation
+  const router = useRouter();
 
   return (
     <View style={styles.container}>
       {/* Left Side - Navigation */}
       <View style={styles.navigation}>
-        <FontAwesome name="bars" size={28} color="black" />
-
-        {/* Button with logo and text to navigate to league.tsx */}
-        <Pressable
+        <NavButton
+          iconName="home"
+          text="This should be top left hippero logo"
+          onPress={() => router.push('/index')}
+        />
+        <NavButton
+          iconName="check-square"
+          text="Check task"
+          onPress={() => router.push('/index')}
+        />
+        <NavButton
+          iconName="target"
+          text="Check out new quests"
+          onPress={() => router.push('/quests')}
+        />
+        <NavButton
+          iconName="trophy"
+          text="Go to League"
           onPress={() => router.push('/league')}
-          style={({ pressed }) => [
-            styles.button,
-            pressed && { opacity: 0.5 }, // Add a pressed effect
-          ]}
-        >
-          <View style={styles.buttonContent}>
-            <FontAwesome name="trophy" size={20} color="black" /> {/* Logo/Icon */}
-            <Text style={styles.buttonText}>Go to League</Text> {/* Text */}
-          </View>
-        </Pressable>
+        />
+        <NavButton
+          iconName="shopping-cart"
+          text="Shop"
+          onPress={() => router.push('/shop')}
+        />
+        <NavButton
+          iconName="user"
+          text="Profile"
+          onPress={() => router.push('/profile')}
+        />
+        <NavButton
+          iconName="question-circle"
+          text="Help"
+          onPress={() => router.push('/help')}
+        />
       </View>
 
       {/* Center - Main Content with Tabs */}
       <View style={styles.content}>
-        <Index />
+        {/* Dynamic content based on the route */}
+        {router.pathname === '/index' && <Index />}
+        {router.pathname === '/league' && <LeagueScreen />}
+        {router.pathname === '/quests' && <QuestsScreen />}
+        {router.pathname === '/shop' && <ShopScreen />}
+        {router.pathname === '/profile' && <ProfileScreen />}
+        {router.pathname === '/help' && <HelpScreen />}
       </View>
 
       {/* Right Side - Stats */}
       <View style={styles.stats}>
-        <Pressable>
-          <FontAwesome
-            name="info-circle"
-            size={25}
-            color={Colors[colorScheme ?? 'light'].text}
-            style={styles.headerIcon}
-          />
-        </Pressable>
+        {/* Dynamic content based on the route */}
+        {router.pathname === '/index' && <IndexRight />}
+        {router.pathname === '/league' && <LeagueRight />}
+        {router.pathname === '/quests' && <QuestsRight />}
+        {router.pathname === '/shop' && <ShopRight />}
+        {router.pathname === '/profile' && <ProfileRight />}
+        {router.pathname === '/help' && <HelpRight />}
       </View>
     </View>
   );
@@ -65,39 +83,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   navigation: {
-    width: 300,  // Adjust width of the left panel as necessary
+    width: 300,
     backgroundColor: '#f0f0f0',
     padding: 15,
     justifyContent: 'center',
     alignItems: 'center',
   },
   content: {
-    flex: 3,  // Center section takes most space
-    padding: 20,  // Optional padding for better spacing around the content
+    flex: 3,
+    padding: 20,
   },
   stats: {
-    width: 600,  // Adjust width of the right panel
+    width: 600,
     backgroundColor: '#e0e0e0',
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  icon: {
-    marginBottom: -3,
-  },
-  headerIcon: {
-    marginRight: 15,
-  },
-  button: {
-    marginTop: 10, // Add some spacing
-  },
-  buttonContent: {
-    flexDirection: 'row', // Align icon and text horizontally
-    alignItems: 'center', // Center items vertically
-  },
-  buttonText: {
-    marginLeft: 10, // Add spacing between icon and text
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 });
