@@ -10,31 +10,25 @@ Made by Honwi Zhen
 
 To help users regain focus and control in an era overwhelmed by excessive information. It aims to organize and manage the chaotic, unpredictable patterns of information overload, which often lead to stress and distraction. Through **user-centric design**, aka gamification, the app creates an engaging and intuitive experience that encourages users to stay focused and motivated. By incorporating game-like elements, such as rewards, challenges, or progress tracking, Hippero makes the process of managing information more enjoyable and realistic.
 
-Additionally, the app emphasizes its role in contributing to the study of human psychology, making insights from this field evident and actionable for all users, regardless of their capacity or expertise. By leveraging gamification, Hippero not only helps users reclaim their focus but also fosters a deeper understanding of how people interact with information and technology. Ultimately, the app aspires to contribute to the recapacitation of the world's creativity by empowering individuals to overcome distractions and unlock their creative potential in a structured, engaging, and user-friendly way.
+Additionally, the app emphasizes its role in contributing to the study of **human psychology**, making insights from this field evident and actionable for all users, regardless of their capacity or expertise. By leveraging gamification, Hippero not only helps users reclaim their focus but also fosters a deeper understanding of how people interact with information and technology. Ultimately, the app aspires to contribute to the recapacitation of the world's creativity by empowering individuals to overcome distractions and unlock their creative potential in a structured, engaging, and user-friendly way.
 
 ### 1.2 Intended Audience
 
 The primary intended audience for Hippero includes individuals who struggle with focus and productivity in an era of information overload. While the app is particularly beneficial for people with ADHD, who often face challenges with attention regulation and task management, it is designed to cater to a broader demographic. This includes:
 
+Our Ideal Customer Profiles:
 
+* People with ADHD in fields that require creativity and psychic bandwidth.
+* New first-born parents that have taken on a spike on tasks quantity without previous experiences.
+
+Subsequent Customer Profiles:
 
 * University Students: Who need to manage academic workloads, research, and deadlines amidst distractions.
-
-
-
 * Professionals: Who require tools to stay organized and productive in fast-paced, information-heavy work environments.
-
-
-
 * Researchers and Academics: Who engage in deep work and need structured systems to manage complex information.
-
-
-
 * Lifelong Learners: Who seek to maintain focus while acquiring new knowledge or skills.
 
-
-
-Hippero is crafted with universal design principles, ensuring accessibility and usability for a wide range of users, regardless of their cognitive preferences or challenges. By addressing the specific needs of individuals with ADHD—such as providing structured, gamified, and engaging systems—the app inherently creates a supportive environment that benefits all users. Whether you're a student juggling multiple responsibilities, a professional navigating a demanding career, or simply someone looking to reclaim focus and creativity, Hippero is designed to help you thrive in the age of information excess.
+Hippero is crafted with human-centric design principles, ensuring accessibility and usability for a wide range of users, regardless of their cognitive preferences or challenges. By addressing the specific needs of individuals with ADHD—such as providing structured, gamified, and engaging systems—the app inherently creates a supportive environment that benefits all users. Whether you're a student juggling multiple responsibilities, a professional navigating a demanding career, or simply someone looking to reclaim focus and creativity, Hippero is designed to help you thrive in the age of information excess.
 
 ### 1.3 Intended Use
 
@@ -43,12 +37,13 @@ The intended use of Hippero is to serve as a focus and productivity tool that he
 * Organize Chaotic Information: Transform overwhelming, unstructured data into a clear and manageable format, allowing users to prioritize tasks and information effectively.
 * Support Deep Work: Facilitate concentration for activities that require sustained attention, such as studying, researching, writing, or creative work.
 * Enhance Mental Clarity: Help users declutter their minds by externalizing and organizing their thoughts, tasks, and goals in one centralized platform.
+
+  * Creativity flow state: Through the clearance of tasks, we are now avaible to have ideas and most importantly the space to develope those ideas that can be life changing rather than dimissing and assuming that the idea will comeback. (It won´t comeback, trust me)
 * Provide Accessibility for Diverse Needs: While particularly beneficial for individuals with ADHD, Hippero is designed to be inclusive and useful for anyone from university students to professionals and lifelong learners.
 * Boost Productivity: Through gamification and user-centric design, Hippero makes task management engaging and rewarding, encouraging users to stay motivated and on track.
 
   **Side effects**
 * Promote Psychological Well-being: By reducing stress and anxiety caused by information overload, Hippero contributes to a healthier, more balanced approach to work and learning.
-* Foster Creativity: By freeing users from the mental burden of disorganization, the app creates space for creative thinking and innovation.
 * Restore Focus: Combat distractions by providing a structured, controlled environment that minimizes the impact of unpredictable information patterns.
 
 In essence, Hippero is intended to be a daily companion for anyone seeking to navigate the complexities of the modern information landscape with greater focus, efficiency, and creativity. Whether used for academic, professional, or personal purposes, the app empowers users to take control of their attention and achieve their goals in a structured, engaging, and stress-free way.
@@ -65,11 +60,12 @@ The app focuses on delivering the following core features:
 ### 1.5 Definitions and Acronyms
 
 - **XP**: Experience Points.
+- **ICP**: Ideal Customer Profile.
 - **JWT**: JSON Web Tokens (for secure authentication).
 - **MVP**: Minimum Viable Product.
 - **API**: Application Programming Interface.
 - **PoC**: Proof of Concept.
-- **ICP:** Ideal Customer Profile
+- **MRR**: Monthly Recurring Revenue
 
 ---
 
@@ -80,7 +76,8 @@ The app focuses on delivering the following core features:
 Users need a task management system that:
 
 - Helps them organize and prioritize tasks effectively.
-- Rewires central nervous to reward task completion through gamification (e.g., XP, rewards, and progress tracking).
+- Guides them to engage the task appropiately.
+- Rewires the part central nervous that is evolutionarily outdate for days ageto reward task completion through gamification (e.g., XP, rewards, and progress tracking).
 - Offers a seamless experience across devices with real-time synchronization.
 
 ### 2.2 Assumptions and Dependencies
@@ -222,6 +219,18 @@ Users need a task management system that:
 5. **User Syncs Across Devices**:
 
    - User logs in on another device and sees their tasks and progress synced.
+
+---
+
+
+
+## Example Initial Entry Flow (First 2 mins Experience)
+
+1. **User Pulls Up**:
+
+   - Takes a mintue of writing all their task for their day.
+   - Checks in with them on how they feel at that time.
+2. 
 
 ---
 
