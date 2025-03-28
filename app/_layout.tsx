@@ -1,3 +1,4 @@
+// app/_layout.tsx
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -5,20 +6,12 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
 import { useColorScheme } from '@/components/useColorScheme';
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router';
+// Error boundary for catching navigation errors
+export { ErrorBoundary } from 'expo-router';
 
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
-};
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
+// Prevent splash screen from hiding prematurely
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -27,11 +20,12 @@ export default function RootLayout() {
     ...FontAwesome.font,
   });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
+  // Handle font loading errors
   useEffect(() => {
     if (error) throw error;
   }, [error]);
 
+  // Hide splash screen when fonts are loaded
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
@@ -51,8 +45,51 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        {/* Main 3-pane screen */}
+        <Stack.Screen 
+          name="index" 
+          options={{ 
+            headerShown: false,
+            // Disable swipe back gesture on iOS
+            gestureEnabled: false 
+          }} 
+        />
+        
+        {/* Individual screens */}
+        <Stack.Screen 
+          name="league" 
+          options={{ 
+            headerShown: false,
+            // Disable swipe back to maintain layout consistency
+            gestureEnabled: false
+          }} 
+        />
+        <Stack.Screen 
+          name="quests" 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="shop" 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="profile" 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="help" 
+          options={{ headerShown: false }} 
+        />
+        
+        {/* Modal example */}
+        <Stack.Screen 
+          name="modal" 
+          options={{ 
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'Settings'
+          }} 
+        />
       </Stack>
     </ThemeProvider>
   );
