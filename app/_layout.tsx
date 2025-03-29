@@ -1,8 +1,8 @@
 import { Link } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { useColorScheme } from 'react-native';
 
-// Define your routes with exact path strings
 const navItems = [
   { name: 'Home', icon: 'home', path: '/' },
   { name: 'League', icon: 'trophy', path: '/league' },
@@ -13,23 +13,57 @@ const navItems = [
 ] as const;
 
 export default function NavigationPane() {
+  const colorScheme = useColorScheme();
+  const isDark = colorScheme === 'dark';
+
   return (
-    <View style={styles.container}>
-      {navItems.map((item) => (
-        <Link
-          key={item.path}
-          href={{
-            pathname: item.path,
-            params: {} // Empty params object satisfies the type
-          }}
-          asChild
-        >
-          <Pressable style={styles.navItem}>
-            <FontAwesome name={item.icon} size={20} style={styles.icon} />
-            <Text style={styles.navText}>{item.name}</Text>
-          </Pressable>
-        </Link>
-      ))}
+    <View style={[
+      styles.container,
+      { 
+        backgroundColor: isDark ? '#1a1a1a' : '#f0f0f0',
+        borderRightColor: isDark ? '#333' : '#ddd'
+      }
+    ]}>
+      {/* Top Logo - Matches your original placement */}
+      <View style={styles.logoContainer}>
+        <Text style={[
+          styles.logoText,
+          { color: isDark ? '#fff' : '#333' }
+        ]}>
+          PROJECT-H
+        </Text>
+      </View>
+
+      {/* Navigation Items - Maintains your original spacing */}
+      <View style={styles.navContent}>
+        {navItems.map((item) => (
+          <Link
+            key={item.path}
+            href={item.path}
+            asChild
+          >
+            <Pressable style={styles.navItem}>
+              <FontAwesome 
+                name={item.icon} 
+                size={20} 
+                style={[
+                  styles.icon,
+                  { color: isDark ? '#fff' : '#333' }
+                ]} 
+              />
+              <Text style={[
+                styles.navText,
+                { color: isDark ? '#fff' : '#333' }
+              ]}>
+                {item.name}
+              </Text>
+            </Pressable>
+          </Link>
+        ))}
+      </View>
+
+      {/* Bottom Spacer - Matches your original layout */}
+      <View style={styles.bottomSpacer} />
     </View>
   );
 }
@@ -37,10 +71,19 @@ export default function NavigationPane() {
 const styles = StyleSheet.create({
   container: {
     width: 200,
-    padding: 20,
-    backgroundColor: '#f0f0f0',
+    flex: 1,
     borderRightWidth: 1,
-    borderRightColor: '#ddd'
+  },
+  logoContainer: {
+    padding: 20,
+    paddingBottom: 30,
+  },
+  logoText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  navContent: {
+    paddingHorizontal: 20,
   },
   navItem: {
     flexDirection: 'row',
@@ -55,5 +98,8 @@ const styles = StyleSheet.create({
   icon: {
     width: 24,
     textAlign: 'center',
+  },
+  bottomSpacer: {
+    flex: 1,
   }
 });
