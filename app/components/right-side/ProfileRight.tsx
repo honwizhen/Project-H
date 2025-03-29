@@ -1,11 +1,38 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { useColorScheme } from 'react-native';
 
-export default function LeagueRight() {
+export default function ProfileRight() {
+  const colorScheme = useColorScheme();
+  const isDark = colorScheme === 'dark';
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>League Stats</Text>
-      <View style={styles.separator} />
-      <Text>League statistics go here.</Text>
+    <View style={[styles.container, { 
+      backgroundColor: isDark ? '#1a1a1a' : '#f5f5f5'
+    }]}>
+      <Text style={[styles.title, { color: isDark ? '#fff' : '#333' }]}>
+        Profile Stats
+      </Text>
+      
+      <View style={styles.statItem}>
+        <Text style={{ color: isDark ? '#aaa' : '#666' }}>Level</Text>
+        <Text style={[styles.statValue, { color: isDark ? '#fff' : '#333' }]}>
+          42
+        </Text>
+      </View>
+
+      <View style={styles.statItem}>
+        <Text style={{ color: isDark ? '#aaa' : '#666' }}>Achievements</Text>
+        <Text style={[styles.statValue, { color: isDark ? '#fff' : '#333' }]}>
+          15/25
+        </Text>
+      </View>
+
+      <View style={styles.statItem}>
+        <Text style={{ color: isDark ? '#aaa' : '#666' }}>Member Since</Text>
+        <Text style={[styles.statValue, { color: isDark ? '#fff' : '#333' }]}>
+          Jan 2023
+        </Text>
+      </View>
     </View>
   );
 }
@@ -13,16 +40,19 @@ export default function LeagueRight() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 20,
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  statItem: {
+    marginBottom: 16,
   },
+  statValue: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginTop: 4,
+  }
 });

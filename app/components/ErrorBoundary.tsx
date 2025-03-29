@@ -8,19 +8,17 @@ interface ErrorBoundaryProps {
 
 interface ErrorBoundaryState {
   hasError: boolean;
-  error: Error | null; // Explicitly type error as Error or null
+  error: Error | null;
 }
 
-export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   state: ErrorBoundaryState = { hasError: false, error: null };
 
   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { hasError: true, error };
   }
 
-  resetError = () => {
-    this.setState({ hasError: false, error: null });
-  };
+  resetError = () => this.setState({ hasError: false, error: null });
 
   render() {
     if (this.state.hasError) {
@@ -28,7 +26,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
         <View style={styles.container}>
           <Text style={styles.title}>Something went wrong</Text>
           <Text style={styles.error}>
-            {this.state.error?.message || 'Unknown error'}
+            {this.state.error?.message || 'Unknown error occurred'}
           </Text>
           <Button title="Try Again" onPress={this.resetError} />
         </View>
@@ -56,3 +54,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
+
+// Make sure to export as default
+export default ErrorBoundary;

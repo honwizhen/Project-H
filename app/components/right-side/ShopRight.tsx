@@ -1,12 +1,41 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { useColorScheme } from 'react-native';
 
+export default function ShopRight() {
+  const colorScheme = useColorScheme();
+  const isDark = colorScheme === 'dark';
 
-export default function LeagueRight() {
+  const featuredItems = [
+    { name: 'Power Boost', price: '100 Coins' },
+    { name: 'Special Skin', price: '250 Coins' },
+    { name: 'XP Multiplier', price: '150 Coins' },
+  ];
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>League Stats</Text>
-      <View style={styles.separator} />
-      <Text>League statistics go here.</Text>
+    <View style={[styles.container, { 
+      backgroundColor: isDark ? '#1a1a1a' : '#f5f5f5'
+    }]}>
+      <Text style={[styles.title, { color: isDark ? '#fff' : '#333' }]}>
+        Featured Items
+      </Text>
+      
+      {featuredItems.map((item, index) => (
+        <View key={index} style={styles.itemContainer}>
+          <Text style={[styles.itemName, { color: isDark ? '#fff' : '#333' }]}>
+            {item.name}
+          </Text>
+          <Text style={[styles.itemPrice, { color: isDark ? '#FFD700' : '#C0A020' }]}>
+            {item.price}
+          </Text>
+        </View>
+      ))}
+
+      <View style={styles.balanceContainer}>
+        <Text style={{ color: isDark ? '#aaa' : '#666' }}>Your Balance:</Text>
+        <Text style={[styles.balance, { color: isDark ? '#FFD700' : '#C0A020' }]}>
+          1,750 Coins
+        </Text>
+      </View>
     </View>
   );
 }
@@ -14,16 +43,35 @@ export default function LeagueRight() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  itemContainer: {
+    marginBottom: 16,
+    padding: 12,
+    borderRadius: 8,
+    backgroundColor: 'rgba(0,0,0,0.05)'
+  },
+  itemName: {
+    fontWeight: '600',
+    marginBottom: 4,
+  },
+  itemPrice: {
     fontWeight: 'bold',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  balanceContainer: {
+    marginTop: 20,
+    paddingTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(0,0,0,0.1)'
   },
+  balance: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginTop: 4,
+  }
 });

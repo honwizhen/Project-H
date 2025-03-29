@@ -16,7 +16,7 @@ export default function HomeScreen() {
         
         <Link href="/quests" asChild>
           <Pressable>
-            <FontAwesome name="target" size={24} />
+            <FontAwesome name="bullseye" size={24} />
             <Text>Quests</Text>
           </Pressable>
         </Link>

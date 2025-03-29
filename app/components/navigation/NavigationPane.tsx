@@ -2,26 +2,38 @@ import { Link } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-// Define your routes with exact path strings
-const navItems = [
-  { name: 'Home', icon: 'home', path: '/' },
-  { name: 'League', icon: 'trophy', path: '/league' },
-  { name: 'Quests', icon: 'tasks', path: '/quests' },
-  { name: 'Shop', icon: 'shopping-bag', path: '/shop' },
-  { name: 'Profile', icon: 'user', path: '/profile' },
-  { name: 'Settings', icon: 'cog', path: '/settings' },
-] as const;
+// Define your route paths as a type
+type AppRoute = 
+  | '/'
+  | '/league'
+  | '/quests'
+  | '/shop'
+  | '/profile'
+  | '/settings'
+  | '/help';
+
+interface NavItem {
+  name: string;
+  icon: React.ComponentProps<typeof FontAwesome>['name'];
+  route: AppRoute;
+}
+
+const navItems: NavItem[] = [
+  { name: 'Home', icon: 'home', route: '/' },
+  { name: 'League', icon: 'trophy', route: '/league' },
+  { name: 'Quests', icon: 'tasks', route: '/quests' },
+  { name: 'Shop', icon: 'shopping-bag', route: '/shop' },
+  { name: 'Profile', icon: 'user', route: '/profile' },
+  { name: 'Settings', icon: 'cog', route: '/settings' },
+];
 
 export default function NavigationPane() {
   return (
     <View style={styles.container}>
       {navItems.map((item) => (
-        <Link
-          key={item.path}
-          href={{
-            pathname: item.path,
-            params: {} // Empty params object satisfies the type
-          }}
+        <Link 
+          key={item.route}
+          href={item.route}
           asChild
         >
           <Pressable style={styles.navItem}>

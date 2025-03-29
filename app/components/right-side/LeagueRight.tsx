@@ -4,8 +4,8 @@ export default function LeagueRight() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>League Stats</Text>
-      <View style={styles.separator} />
-      <Text>League statistics go here.</Text>
+      <Text>Rank: Gold III</Text>
+      <Text>Points: 1,250</Text>
     </View>
   );
 }
@@ -13,16 +13,10 @@ export default function LeagueRight() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
+    marginBottom: 16
+  }
 });
