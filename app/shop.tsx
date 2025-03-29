@@ -1,11 +1,12 @@
-import { StyleSheet, View } from 'react-native';
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text } from '@/components/Themed';
+import { StyleSheet, Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function shop() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Hippero</Text>
+      <View style={styles.separator} />
+      <Text>This is the shop screen.</Text>
 
     </View>
   );

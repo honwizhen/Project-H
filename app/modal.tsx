@@ -1,18 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import { router } from 'expo-router';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 
 export default function ModalScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/modal.tsx" />
+      <Text style={styles.title}>Settings</Text>
+      
+      <View style={styles.content}>
+        <Text>Modal content goes here</Text>
+      </View>
 
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+      <Pressable 
+        onPress={() => router.back()} 
+        style={styles.closeButton}
+      >
+        <Text style={styles.closeText}>Close</Text>
+      </Pressable>
     </View>
   );
 }
@@ -20,16 +23,31 @@ export default function ModalScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: 'white',
+    marginTop: 50, // Gives space at top on iOS
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    marginBottom: 15,
+    textAlign: 'center',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  closeButton: {
+    backgroundColor: '#f0f0f0',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  closeText: {
+    fontWeight: '600',
+    color: '#333',
   },
 });
