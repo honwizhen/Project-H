@@ -70,7 +70,7 @@ export default function NavigationPane() {
 
 const styles = StyleSheet.create({
   container: {
-    width: 200,
+    width: 256,
     flex: 1,
     borderRightWidth: 1,
   },
